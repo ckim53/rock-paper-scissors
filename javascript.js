@@ -1,3 +1,5 @@
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice(){
     //generate a random number between 1 and 3
@@ -19,3 +21,58 @@ function getHumanChoice(){
     const input = prompt("Choose between rock, paper, and scissors.").toLowerCase();
     return input;
 }
+
+function playRound(humanChoice, computerChoice){
+    if(humanChoice == "rock"){
+        switch (computerChoice){
+            case ("paper"):
+                computerScore += 1;
+                console.log("You lose! Paper beats rock.");
+                break;
+            case("scissors"):
+                humanScore += 1;
+                console.log("You win! Rock beats scissors.");
+                break;
+            default:
+                console.log("It's a tie!");
+                break;
+        }
+    }
+    else if(humanChoice == "paper"){
+        switch (computerChoice){
+            case ("scissors"):
+                computerScore += 1;
+                console.log("You lose! Scissors beats paper.");
+                break;
+            case("rock"):
+                humanScore += 1;
+                console.log("You win! Paper beats rock.");
+                break;
+            default:
+                console.log("It's a tie!");
+                break;
+        }
+    }
+    else {
+        switch (computerChoice){
+            case ("rock"):
+                computerScore += 1;
+                console.log("You lose! Rock beats scissors.");
+                break;
+            case("paper"):
+                humanScore += 1;
+                console.log("You win! Scissors beats paper.");
+                break;
+            default:
+                console.log("It's a tie!");
+                break;
+        }
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+console.log(`Your score: ${humanScore}`)
+console.log(`Computer score: ${computerScore}`)
