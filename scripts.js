@@ -2,9 +2,7 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice(){
-    //generate a random number between 1 and 3
     const num = Math.floor(Math.random() * 3) + 1;
-    //if number is 1: return rock, 2: return paper, 3: return scissors
     if (num == 1){
         return "rock";
     }
@@ -17,7 +15,6 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    //prompt user for input
     const input = prompt("Choose between rock, paper, and scissors.").toLowerCase();
     return input;
 }
