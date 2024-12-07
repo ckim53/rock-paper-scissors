@@ -67,17 +67,19 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
-function playGame(){
-    for (let i = 0; i < 5; i++){
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-    if (humanScore > computerScore){
-        console.log("Congrats! You won the game!");
-    }
-    else if (humanScore < computerScore){
-        console.log("The computer won. Better luck next time!");
-    }
-    else{
-        console.log("It's a tie! Good game.");
-    }
-}
+const rockButton = document.createElement("button");
+const paperButton = document.createElement("button");
+const scissorsButton = document.createElement("button");
+const body = document.querySelector("body");
+
+rockButton.textContent = "Rock";
+paperButton.textContent = "Paper";
+scissorsButton.textContent = "Scissors";
+
+body.appendChild(rockButton);
+body.appendChild(paperButton);
+body.appendChild(scissorsButton);
+
+rockButton.addEventListener("click", () => playRound("rock", getComputerChoice()));
+paperButton.addEventListener("click", () => playRound("paper", getComputerChoice()));
+scissorsButton.addEventListener("click", () => playRound("scissors", getComputerChoice()));
