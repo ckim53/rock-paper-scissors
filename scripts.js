@@ -69,6 +69,25 @@ function playRound(humanChoice, computerChoice){
     }
     runningScore.textContent = `You: ${humanScore}, Computer: ${computerScore}`;
     results.appendChild(runningScore);
+
+    if (humanScore == 5 || computerScore == 5){
+        if (humanScore == computerScore){
+            results.textContent = "Final Result: It's a tie! Good game.";
+            humanScore = 0, computerScore = 0;
+        }
+        else {
+            switch (Math.max(humanScore, computerScore)){
+                case(humanScore):
+                    results.textContent = "You won the game! Congrats!";
+                    humanScore = 0, computerScore = 0;
+                    break;
+                case(computerScore):
+                    results.textContent = "The computer won. Good luck next time.";
+                    humanScore = 0, computerScore = 0;
+                default:;
+            }
+        }
+    }
 }
 
 const rockButton = document.createElement("button");
