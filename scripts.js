@@ -20,6 +20,8 @@ function getHumanChoice(){
 }
 
 function playRound(humanChoice, computerChoice){
+    const results = document.querySelector("div");
+    const runningScore = document.createElement("div");
     if(humanChoice == "rock"){
         switch (computerChoice){
             case ("paper"):
@@ -65,6 +67,8 @@ function playRound(humanChoice, computerChoice){
                 break;
         }
     }
+    runningScore.textContent = `You: ${humanScore}, Computer: ${computerScore}`;
+    results.appendChild(runningScore);
 }
 
 const rockButton = document.createElement("button");
@@ -83,5 +87,3 @@ scissorsButton.addEventListener("click", () => playRound("scissors", getComputer
 body.appendChild(rockButton);
 body.appendChild(paperButton);
 body.appendChild(scissorsButton);
-
-const results = document.createElement("div");
