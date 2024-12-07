@@ -24,14 +24,14 @@ function playRound(humanChoice, computerChoice){
         switch (computerChoice){
             case ("paper"):
                 computerScore += 1;
-                console.log("You lose! Paper beats rock.");
+                results.textContent = "You lose! Paper beats rock.";
                 break;
             case("scissors"):
                 humanScore += 1;
-                console.log("You win! Rock beats scissors.");
+                results.textContent = "You win! Rock beats scissors.";
                 break;
             default:
-                console.log("It's a tie!");
+                results.textContent = "It's a tie!";
                 break;
         }
     }
@@ -39,14 +39,14 @@ function playRound(humanChoice, computerChoice){
         switch (computerChoice){
             case ("scissors"):
                 computerScore += 1;
-                console.log("You lose! Scissors beats paper.");
+                results.textContent = "You lose! Scissors beats paper.";
                 break;
             case("rock"):
                 humanScore += 1;
-                console.log("You win! Paper beats rock.");
+                results.textContent = "You win! Paper beats rock.";
                 break;
             default:
-                console.log("It's a tie!");
+                results.textContent = "It's a tie!";
                 break;
         }
     }
@@ -54,14 +54,14 @@ function playRound(humanChoice, computerChoice){
         switch (computerChoice){
             case ("rock"):
                 computerScore += 1;
-                console.log("You lose! Rock beats scissors.");
+                results.textContent = "You lose! Rock beats scissors.";
                 break;
             case("paper"):
                 humanScore += 1;
-                console.log("You win! Scissors beats paper.");
+                results.textContent = "You win! Scissors beats paper.";
                 break;
             default:
-                console.log("It's a tie!");
+                results.textContent = "It's a tie!";
                 break;
         }
     }
@@ -76,10 +76,12 @@ rockButton.textContent = "Rock";
 paperButton.textContent = "Paper";
 scissorsButton.textContent = "Scissors";
 
+rockButton.addEventListener("click", () => playRound("rock", getComputerChoice()));
+paperButton.addEventListener("click", () => playRound("paper", getComputerChoice()));
+scissorsButton.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+
 body.appendChild(rockButton);
 body.appendChild(paperButton);
 body.appendChild(scissorsButton);
 
-rockButton.addEventListener("click", () => playRound("rock", getComputerChoice()));
-paperButton.addEventListener("click", () => playRound("paper", getComputerChoice()));
-scissorsButton.addEventListener("click", () => playRound("scissors", getComputerChoice()));
+const results = document.createElement("div");
